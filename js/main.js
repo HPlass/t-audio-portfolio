@@ -19,6 +19,26 @@ document.querySelectorAll('.track audio').forEach((audio) => {
   }, true);
 });
 
+// Selected Work filters: show only cards matching the active category.
+const filterButtons = document.querySelectorAll('.work-filter');
+const workCards = document.querySelectorAll('.work-card');
+
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach((b) => {
+      b.classList.remove('is-active');
+      b.setAttribute('aria-pressed', 'false');
+    });
+    button.classList.add('is-active');
+    button.setAttribute('aria-pressed', 'true');
+
+    const filter = button.dataset.filter;
+    workCards.forEach((card) => {
+      card.hidden = filter !== 'all' && card.dataset.category !== filter;
+    });
+  });
+});
+
 // Only one player at a time: pause everything else when one starts.
 document.querySelectorAll('video, audio').forEach((player) => {
   player.addEventListener('play', () => {

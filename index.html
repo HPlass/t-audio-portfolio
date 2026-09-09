@@ -13,7 +13,7 @@
   <header class="site-header">
     <a class="wordmark" href="#top">THEO&nbsp;PLASS</a>
     <nav class="site-nav" aria-label="Main">
-      <a href="#film">Film / Post</a>
+      <a href="#work">Work</a>
       <a href="#music">Music</a>
       <a href="#about">About</a>
     </nav>
@@ -30,46 +30,105 @@
         Post-production sound, sound design, and original music.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#film">View Work</a>
+        <a class="btn btn-primary" href="#work">View Work</a>
         <a class="btn btn-ghost" href="#about">About Me</a>
       </div>
     </section>
 
-    <!-- ============ FILM / POST ============ -->
-    <section id="film" class="section">
+    <!-- ============ SELECTED WORK ============ -->
+    <section id="work" class="section">
       <div class="section-head">
-        <h2>Film / Post</h2>
-        <p class="section-sub">Selected clips from post-production and sound design work.</p>
+        <h2>Selected Work</h2>
+        <p class="section-sub">Sound design and mixing across animation, games, and audio fiction.</p>
       </div>
 
-      <div class="clip-grid">
+      <div class="work-filters" role="group" aria-label="Filter selected work by category">
+        <button type="button" class="work-filter is-active" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="work-filter" data-filter="film-tv" aria-pressed="false">Film / TV</button>
+        <button type="button" class="work-filter" data-filter="game-audio" aria-pressed="false">Game Audio</button>
+        <button type="button" class="work-filter" data-filter="podcast" aria-pressed="false">Podcast</button>
+      </div>
+
+      <div class="work-grid">
         <!--
-          To add a clip: drop the video file in assets/film/ and copy this card.
-          Update the src, title, and role/description text.
-          For a Vimeo/YouTube clip, replace the <video> with the platform's <iframe> embed.
+          To add a piece of work: copy a card, set data-category to one of
+          film-tv / game-audio / podcast (or a new value — add a matching
+          filter button above), and swap the embed, title, and credit line.
         -->
-        <article class="clip-card">
+        <article class="work-card" data-category="film-tv">
           <div class="media-frame">
-            <video controls preload="metadata" src="assets/film/clip-01.mp4"></video>
+            <iframe src="https://www.youtube.com/embed/upkp6j7S69U" title="Get to Know Princess Leia! — Star Wars: Icons of the Force"
+                    loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
           </div>
-          <h3 class="card-title">Project Title</h3>
-          <p class="card-meta">Sound Design · Re-recording Mix · 2026</p>
+          <h3 class="card-title">Get to Know Princess Leia!</h3>
+          <p class="card-meta">Star Wars: Icons of the Force · Sound Design</p>
         </article>
 
-        <article class="clip-card">
+        <article class="work-card" data-category="film-tv">
           <div class="media-frame">
-            <video controls preload="metadata" src="assets/film/clip-02.mp4"></video>
+            <iframe src="https://www.youtube.com/embed/Q9laRy5OYW8" title="Get to Know Darth Vader! — Star Wars: Icons of the Force"
+                    loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
           </div>
-          <h3 class="card-title">Project Title</h3>
-          <p class="card-meta">Dialogue Edit · Foley · 2025</p>
+          <h3 class="card-title">Get to Know Darth Vader!</h3>
+          <p class="card-meta">Star Wars: Icons of the Force · Sound Design</p>
         </article>
 
-        <article class="clip-card">
+        <article class="work-card" data-category="film-tv">
           <div class="media-frame">
-            <video controls preload="metadata" src="assets/film/clip-03.mp4"></video>
+            <iframe src="https://www.youtube.com/embed/E98DrGfgNow" title="Get to Know Han Solo! — Star Wars: Icons of the Force"
+                    loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
           </div>
-          <h3 class="card-title">Project Title</h3>
-          <p class="card-meta">ADR · Mix · 2025</p>
+          <h3 class="card-title">Get to Know Han Solo!</h3>
+          <p class="card-meta">Star Wars: Icons of the Force · Sound Design</p>
+        </article>
+
+        <article class="work-card" data-category="film-tv">
+          <div class="media-frame">
+            <iframe src="https://www.youtube.com/embed/u_9VSUQEDnI" title="Ghost-Spider: Call of the Rhino — Marvel's Super Stories"
+                    loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <h3 class="card-title">Ghost-Spider: Call of the Rhino</h3>
+          <p class="card-meta">Marvel's Super Stories · Sound Design &amp; Mix, HOBO Audio Post</p>
+        </article>
+
+        <article class="work-card" data-category="game-audio">
+          <div class="media-frame">
+            <video controls preload="metadata" src="assets/film/create-garden-trailer.mp4"></video>
+          </div>
+          <h3 class="card-title">Garden Trailer</h3>
+          <p class="card-meta">CREATE Labs Game Design · Sound Design &amp; Mix</p>
+        </article>
+
+        <article class="work-card" data-category="game-audio">
+          <div class="media-frame">
+            <video controls preload="metadata" src="assets/film/create-ocean-trailer.mp4"></video>
+          </div>
+          <h3 class="card-title">Ocean Trailer</h3>
+          <p class="card-meta">CREATE Labs Game Design · Sound Design &amp; Mix</p>
+        </article>
+
+        <article class="work-card" data-category="game-audio">
+          <div class="media-frame">
+            <video controls preload="metadata" src="assets/film/create-space-trailer.mp4"></video>
+          </div>
+          <h3 class="card-title">Space Trailer</h3>
+          <p class="card-meta">CREATE Labs Game Design · Sound Design &amp; Mix</p>
+        </article>
+
+        <article class="work-card" data-category="podcast">
+          <a class="media-frame media-frame-link" href="https://www.dipseastories.com/audiobooks/through-the-smoke-series/"
+             target="_blank" rel="noopener">
+            <span class="link-frame-inner">
+              <span class="link-icon" aria-hidden="true">▶</span>
+              <span class="link-label">Listen on Dipsea ↗</span>
+            </span>
+          </a>
+          <h3 class="card-title">Through the Smoke</h3>
+          <p class="card-meta">Dipsea Audio Drama · Sound Design, Full English Post</p>
         </article>
       </div>
     </section>

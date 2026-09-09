@@ -12,25 +12,38 @@ python3 -m http.server 8000
 
 (Or just open `index.html` in a browser.)
 
+## Sections
+
+- **Selected Work** (`#work`) — a filterable grid (All / Film / TV / Game Audio /
+  Podcast) mixing YouTube embeds, self-hosted `<video>` clips, and a link-out
+  card for platforms that can't be embedded (e.g. subscription audio).
+  Each card carries a `data-category` attribute the filter buttons match against;
+  add a new category by adding both a card and a matching `<button data-filter="…">`.
+- **Music** (`#music`) — a track list with inline `<audio>` players.
+- **About** (`#about`) — bio, resume download, and the Vimeo highlight reel.
+
 ## Adding your media
 
-Until real files are added, each player shows an "Add media file: …" placeholder.
+Music tracks still show an "Add audio file: …" placeholder until real files are added.
 
 | What | Where to put it | Then |
 |---|---|---|
-| Film/post clips | `assets/film/clip-01.mp4` etc. | Edit the matching card's title/credits in `index.html` |
+| Selected Work cards | Depends on source — see below | Copy an existing `.work-card` in `index.html`, set `data-category` |
 | Music tracks | `assets/music/track-01.mp3` etc. | Edit the matching track's title/credits in `index.html` |
 | Highlight reel | Currently a Vimeo embed in `index.html`'s About section | Swap the `<iframe>` `src` for a different Vimeo/YouTube video ID |
 | Resume | `assets/resume/theo-plass-resume.pdf` (added) | — |
 | Cover art (optional) | `assets/img/` | Add an `<img>` inside the track's `.track-art` div |
 
-To add more clips or tracks, copy an existing card/row in `index.html` — there
-are HTML comments in each section showing exactly what to change.
+**Selected Work cards can be any of three kinds** — pick whichever fits the source:
 
-**Using streaming platforms instead:** any card's `<video>`/`<audio>` element can
-be replaced with an embed `<iframe>` from Vimeo, YouTube, SoundCloud, Spotify, or
-Bandcamp. This keeps large files out of the repo (GitHub blocks files over 100 MB;
-keep self-hosted clips short and compressed).
+1. **YouTube/Vimeo embed** — an `<iframe>` inside `.media-frame`, no local file needed.
+2. **Self-hosted clip** — a `<video src="assets/film/….mp4">` inside `.media-frame`.
+   GitHub blocks files over 100 MB, so compress first — e.g.
+   `ffmpeg -i in.mov -vf "scale=-2:1080,fps=30" -c:v libx264 -crf 22 -c:a aac -b:a 192k -movflags +faststart out.mp4`
+   turns a 4K mezzanine file into a ~30–40 MB web clip.
+3. **Link-out card** — for content that can't be embedded (paywalled, DRM'd, no
+   embed support). Use `.media-frame.media-frame-link` wrapping an `<a>` — see
+   the Dipsea card for the pattern.
 
 ## Placeholder text to replace
 
