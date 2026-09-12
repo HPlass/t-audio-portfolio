@@ -1,21 +1,11 @@
-// Mark video frames whose media file hasn't been added yet, so the page
-// shows a styled "add media" placeholder instead of a broken player.
+// Mark video frames whose self-hosted media file hasn't been added yet
+// (used on work/*.html pages), so the page shows a styled "add media"
+// placeholder instead of a broken player.
 document.querySelectorAll('.media-frame video').forEach((video) => {
   video.addEventListener('error', () => {
     const frame = video.closest('.media-frame');
     frame.classList.add('missing');
     frame.dataset.src = video.getAttribute('src');
-  }, true);
-});
-
-// Same for audio tracks: hide the broken player and show a hint instead.
-document.querySelectorAll('.track audio').forEach((audio) => {
-  audio.addEventListener('error', () => {
-    audio.classList.add('missing');
-    const note = document.createElement('p');
-    note.className = 'missing-note';
-    note.textContent = `Add audio file: ${audio.getAttribute('src')}`;
-    audio.after(note);
   }, true);
 });
 
